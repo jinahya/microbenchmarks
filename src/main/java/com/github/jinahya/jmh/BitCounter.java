@@ -1,12 +1,18 @@
 
 package com.github.jinahya.jmh;
 
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+/**
+ * Defines benchmarks for counting the number of one-bits in the two's complement binary representation of a given int
+ * value.
+ */
 public class BitCounter extends BaseBenchmark {
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -18,7 +24,7 @@ public class BitCounter extends BaseBenchmark {
         new Runner(options).run();
     }
 
-    // ------------------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------
     @State(Scope.Benchmark)
     public static class BitCounterState {
 
@@ -35,21 +41,7 @@ public class BitCounter extends BaseBenchmark {
         }
 
         // -------------------------------------------------------------------------------------------------------------
-        @Setup(Level.Trial)
-        public void onSetUp() {
-        }
-
-        @TearDown(Level.Trial)
-        public void onTearDown() {
-        }
-
-        // -------------------------------------------------------------------------------------------------------------
-        public int getNumber() {
-            return number;
-        }
-
-        // -------------------------------------------------------------------------------------------------------------
-        private final int number;
+        final int number;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -62,10 +54,17 @@ public class BitCounter extends BaseBenchmark {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Returns the number of one-bits in two's complement binary representation of a given number.
+     *
+     * @param state a status holds the number.
+     * @return the number of one-bits on given number.
+     */
     @Benchmark
     public int method1(final BitCounterState state) {
         int count = 0;
-        int number = state.getNumber();
+        int number = state.number;
         for (int i = 0; i < Integer.SIZE; i++) {
             if ((number & 0b01) == 0b01) {
                 count++;
@@ -78,7 +77,7 @@ public class BitCounter extends BaseBenchmark {
     @Benchmark
     public int method2(final BitCounterState state) {
         int count = 0;
-        int number = state.getNumber();
+        int number = state.number;
         for (int i = 0; i < Integer.SIZE; i++) {
             if ((number & 0b01) == 0b01) {
                 count++;
@@ -94,7 +93,7 @@ public class BitCounter extends BaseBenchmark {
     @Benchmark
     public int method3(final BitCounterState state) {
         int count = 0;
-        int number = state.getNumber();
+        int number = state.number;
         for (; number > 0; count++) {
             number &= number - 1;
         }
@@ -110,6 +109,6 @@ public class BitCounter extends BaseBenchmark {
      */
     @Benchmark
     public int method4(final BitCounterState state) {
-        return Integer.bitCount(state.getNumber());
+        return Integer.bitCount(state.number);
     }
 }
