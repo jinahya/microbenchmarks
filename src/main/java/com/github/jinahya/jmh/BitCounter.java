@@ -16,7 +16,9 @@ public class BitCounter extends BaseBenchmark {
                 .forks(1)
                 .build();
         new Runner(options).run();
-    }    // -----------------------------------------------------------------------------------------------------------------
+    }
+
+    // ------------------------------------------------------------------------------------------------------------
     @State(Scope.Benchmark)
     public static class BitCounterState {
 
