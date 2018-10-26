@@ -1,6 +1,7 @@
 
-package com.github.jinahya.jmh;
+package com.github.jinahya.jmh.count;
 
+import com.github.jinahya.jmh.BaseBenchmark;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;

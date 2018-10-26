@@ -1,5 +1,6 @@
-package com.github.jinahya.jmh;
+package com.github.jinahya.jmh.count;
 
+import com.github.jinahya.jmh.BaseBenchmarkTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
