@@ -25,9 +25,6 @@ public abstract class BaseBenchmarkTest<T extends BaseBenchmark> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-//    protected abstract T benchmarkInstance();
-
-    // -----------------------------------------------------------------------------------------------------------------
     protected final Class<T> benchmarkClass;
 
     @WeldSetup

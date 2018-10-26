@@ -8,12 +8,12 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-public class BitCounter extends BaseBenchmark {
+public class BitCount extends BaseBenchmark {
 
     // -----------------------------------------------------------------------------------------------------------------
     public static void main(final String... args) throws RunnerException {
         final Options options = new OptionsBuilder()
-                .include(BitCounter.class.getSimpleName())
+                .include(BitCount.class.getSimpleName())
                 .forks(1)
                 .build();
         new Runner(options).run();
@@ -56,7 +56,7 @@ public class BitCounter extends BaseBenchmark {
     /**
      * Creates a new instance.
      */
-    public BitCounter() {
+    public BitCount() {
         super();
     }
 

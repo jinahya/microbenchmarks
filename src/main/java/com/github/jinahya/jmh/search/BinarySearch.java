@@ -1,4 +1,11 @@
 package com.github.jinahya.jmh.search;
 
-public class BinarySearch {
+import java.util.List;
+
+public class BinarySearch<T extends Comparable<T>> {
+
+    // -----------------------------------------------------------------------------------------------------------------
+    public int i1(final List<T> array, final T value) {
+        return -1;
+    }
 }
