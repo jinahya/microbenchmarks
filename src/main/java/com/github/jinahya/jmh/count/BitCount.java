@@ -1,24 +1,19 @@
 
-package com.github.jinahya.jmh;
+package com.github.jinahya.jmh.count;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
+import com.github.jinahya.jmh.BaseBenchmark;
+import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-/**
- * A class for benchmarking the algorithm for counting the number of one-bits in the two's complement binary
- * representation of a given int value.
- */
-public class BitCounter extends BaseBenchmark {
+public class BitCount extends BaseBenchmark {
 
     // -----------------------------------------------------------------------------------------------------------------
     public static void main(final String... args) throws RunnerException {
         final Options options = new OptionsBuilder()
-                .include(BitCounter.class.getSimpleName())
+                .include(BitCount.class.getSimpleName())
                 .forks(1)
                 .build();
         new Runner(options).run();
@@ -49,7 +44,7 @@ public class BitCounter extends BaseBenchmark {
     /**
      * Creates a new instance.
      */
-    public BitCounter() {
+    public BitCount() {
         super();
     }
 

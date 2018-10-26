@@ -1,22 +1,23 @@
-package com.github.jinahya.jmh;
+package com.github.jinahya.jmh.count;
 
+import com.github.jinahya.jmh.BaseBenchmarkTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BitCounterTest extends BaseBenchmarkTest<BitCounter> {
+public class BitCountTest extends BaseBenchmarkTest<BitCount> {
 
     // -----------------------------------------------------------------------------------------------------------------
-    public BitCounterTest() {
-        super(BitCounter.class);
+    public BitCountTest() {
+        super(BitCount.class);
     }
 
     // -----------------------------------------------------------------------------------------------------------------
     @Test
     void test() {
-        final BitCounter.BitCounterState state = new BitCounter.BitCounterState();
+        final BitCount.BitCounterState state = new BitCount.BitCounterState();
         final int result1 = benchmarkInstance.method1(state);
         final int result2 = benchmarkInstance.method2(state);
         final int result3 = benchmarkInstance.method3(state);
@@ -27,12 +28,6 @@ public class BitCounterTest extends BaseBenchmarkTest<BitCounter> {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-//    @Override
-//    protected BitCounter benchmarkInstance() {
-//        return benchmarkInstance;
-//    }
-
-    // -----------------------------------------------------------------------------------------------------------------
     @Inject
-    private BitCounter benchmarkInstance;
+    private BitCount benchmarkInstance;
 }
