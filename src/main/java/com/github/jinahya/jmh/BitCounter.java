@@ -10,8 +10,8 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 /**
- * Defines benchmarks for counting the number of one-bits in the two's complement binary representation of a given int
- * value.
+ * A class for benchmarking the algorithm for counting the number of one-bits in the two's complement binary
+ * representation of a given int value.
  */
 public class BitCounter extends BaseBenchmark {
 
